@@ -1,0 +1,53 @@
+
+@import "../../libs/normalize-scss/sass/normalize/import-now";
+@import "skin";
+@import "variables";
+@import "mixins";
+@import "mixins-media";
+@import "extends";
+
+@import "common";
+@import "header/header";
+@import "header/header-overlay";
+@import "header/header-menu";
+@import "header/header-logo";
+@import "header/header-navbar";
+@import "header/header-content";
+
+@import "sections/skills/section-skills";
+@import "sections/skills/skill-item";
+@import "sections/section-about";
+@import "sections/section-form";
+@import "sections/section-posts";
+
+@import "footer";
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .btn {
+        height: 50px;
+        padding: 14px $gap;
+        font-size: 1rem;
+        min-width: 200px;
+    }
+    .header-content__title {
+        margin: 0 0 43px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.875rem;
+    }
+    .btn {
+        height: 40px;
+        padding: 9px $gap;
+        font-size: 1rem;
+        min-width: 170px;
+    }
+    .header-content__title {
+        margin: 0 0 33px;
+    }
+}

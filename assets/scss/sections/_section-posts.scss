@@ -1,0 +1,179 @@
+.posts {
+ padding-top: 100px;
+ padding-bottom: 100px;
+
+ @media (max-width: 991.8px) and (min-width: 768px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+ }
+
+ @media (max-width: 767.8px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+ }
+
+    &__container {
+        max-width: 1340px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        @extend %container;
+    }
+    &__container h2 {
+        color: $color-primary;
+        font-family: "Roboto Slab", serif;
+        margin-top: 0;
+        margin-bottom: 56px;
+        font-size: 40px;
+        letter-spacing: 0.1em;
+
+        @media (min-width: 992px) {
+         margin-bottom: 56px;
+        font-size: 2.5rem;
+       }
+
+        @media (max-width: 991.8px) and (min-width: 768px){
+         margin-bottom: 42px;
+         font-size: 2rem;
+       }
+
+       @media (max-width: 767.8px) and (min-width: 576px) {
+           margin-bottom: 36px;
+           font-size: 1.5rem;
+           letter-spacing: 0.1em;
+       }
+       @media (max-width: 575.8px) {
+           margin-bottom: 36px;
+           text-align: center;
+           font-size: 1.5rem;
+       }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-areas: "b1 b1 b2 b3" "b4 b5 b6 b6";
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding-bottom: 20px;
+
+        @media (max-width: 991.8px) and (min-width: 768px) {
+       grid-template-areas:
+        "b1 b1 b2"
+        "b3 b4 b4"
+        "b5 b5 b6";
+       grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 767.8px) and (min-width: 576px) {
+       grid-template-areas:
+        "b1 b2"
+        "b3 b4"
+        "b5 b6";
+       grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 575.8px) {
+      grid-template-areas:
+        "b1"
+        "b2"
+        "b3"
+        "b4"
+        "b5"
+        "b6";
+      grid-template-columns: 1fr;
+    }
+    }
+    &__action {
+        display: flex;
+        justify-content: center;
+    }
+
+    &-item {
+        overflow: hidden;
+        background-color: #F2F2F2;
+        &__image {
+            display: flex;
+            height: 300px;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        &__image img {
+            width: 100%;
+            height: 300px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        &__caption {
+            display: grid;
+            color: $color-gray;
+            padding: 20px 20px 20px 20px;
+            align-content: center;
+        }
+        &__caption h3 {
+            font-family: "Roboto Slab", serif;
+            letter-spacing: 0.9px;
+            font-size: 18px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        &__caption p {
+            letter-spacing: normal;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        &:hover {
+            .posts-item__image img {
+                transform: scale(1.1);
+            }
+            .posts-item__link {
+                background-color: #D8D8D8;
+            }
+        }
+    }
+    .btn--primary {
+        border: 2px solid $color-primary;
+        background-color: #575E73;
+        height: 60px;
+        letter-spacing: 1.8px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 20px 14px 20px;
+        @media (min-width: 576px) {
+            min-width: 350px;
+        }
+
+        @media (max-width: 575.8px) {
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: $color-accent;
+        }
+    }
+
+    &-item__link {
+        display: grid;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        grid-template-rows: 300px 1fr;
+        overflow: hidden;
+
+    }
+
+}
+@for $i from 1 through 6 {
+    .posts-item:nth-of-type(#{$i}) {
+        grid-area: b + $i;
+    }
+}
